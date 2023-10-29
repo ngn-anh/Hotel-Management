@@ -1,0 +1,79 @@
+.containerChat {
+  max-width: 350px;
+  position: fixed;
+  top: 30%;
+  right: 2%;
+  z-index: 100;
+  background-color: white;
+  box-shadow: 0 1rem 2rem hsl(0 0% 0% / 20%);
+  border-radius: 10px
+}
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* border-bottom: 1px solid white; */
+  color: white;
+  background-color: rgb(28, 29, 85);
+  padding: 5px 20px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.topbar .name {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.topbar p {
+  font-weight: 700;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  padding: 10px 20px;
+}
+.content .customer {
+  align-self: flex-end;
+  background-color: #3e4088;
+  padding: 7px 10px;
+  border-radius: 10px;
+  color: white;
+  font-size: 14px;
+}
+.content .hotel {
+  align-self: flex-start;
+  background-color: #e9e3e3;
+  padding: 7px 10px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+.content p {
+  margin: 0 !important;
+  margin-bottom: 5px !important;
+  margin-top: 5px !important;
+}
+.bottombar {
+  display: flex;
+  border-top: 1px solid rgba(28, 29, 85, 0.582);
+  padding: 18px 20px 18px 20px;
+  gap: 10px;
+  align-items: center;
+}
+.attach {
+  color: #14274a !important;
+  width: 20px;
+  cursor: pointer;
+}
+.input {
+  width: 250px !important;
+  padding: 5px 10px;
+}
+.input::placeholder {
+  color: #ccc !important;
+}
+.close{
+  cursor: pointer;
+}

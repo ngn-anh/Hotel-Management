@@ -1,0 +1,14 @@
+.slick-dots{
+  position:absolute;
+  top:90%;
+  left: 0%;
+  height: 50px;
+}
+
+.slick-dots li {
+  width: 30px;
+  height: 40px;
+}
+.slick-slide div{
+  height: 705px !important;
+}

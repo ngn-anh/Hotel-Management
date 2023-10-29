@@ -1,0 +1,54 @@
+.container {
+  max-width: 1300px;
+  margin: 80px auto !important;
+  border: 1px solid #14274a;
+  border-bottom-left-radius: 1%;
+  border-bottom-right-radius: 1%;
+}
+.name {
+  background-color: #14274a;
+}
+.name h2 {
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  margin: 0 !important;
+  text-transform: uppercase;
+  font-size: 30px;
+}
+.detail {
+  display: flex;
+  padding: 50px 100px;
+  justify-content: space-between;
+  align-items: center;
+}
+.detail button {
+  color: white;
+  background-color: #e0b973;
+  border: none;
+  padding: 20px 35px;
+  font-size: 18px;
+  border-radius: 10px;
+  letter-spacing: 1px;
+}
+.detail p {
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 18px;
+  color: #14274a;
+  margin: 0;
+}
+.icon {
+  width: 30px;
+  height: 30px;
+  color: #e0b973;
+}
+.inf {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.detail a {
+  color: #14274a;
+  text-decoration: none;
+}

@@ -1,0 +1,67 @@
+.container {
+  background-image: url("../../assets/picture4.jpg");
+  height: 320px;
+  background-size: cover;
+  background-position: center;
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-between;
+  padding: 100px 200px;
+  color: white;
+}
+.inf {
+  list-style: none;
+}
+.inf :first-child {
+  font-size: 24px;
+  letter-spacing: 2px;
+  font-family: "EB Garamond", serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.inf:first-child p {
+  margin: 0 !important;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 6px;
+}
+.phone {
+  margin-left: 40px;
+  font-size: 14px;
+  margin-top: 20px;
+  color: rgb(226, 240, 240);
+}
+.email{
+  color: rgb(226, 240, 240);
+}
+.contact a{
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-top: 15px;
+}
+
+input[type=email]{
+  background-color: #14274A;
+  color: white;
+  border: 2px solid #E0B973;
+  padding: 10px 15px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+input::placeholder{
+  color: white;
+}
+button{
+  border: 2px solid #E0B973;
+  color:  #14274A;
+  background-color: #E0B973;
+  padding: 10px 15px;
+  font-weight: 700;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  cursor: pointer;
+}

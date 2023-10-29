@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useState} from "react";
+import Header from "./components/Layout/Header";
+import { Fragment } from "react";
+import HomePage from "./components/UI/HomePage";
+import Footer from "./components/Layout/Footer";
+import BookNow from "./components/UI/BookNow";
+
 
 function App() {
+  const [isHomePage, setHomePage] = useState(true);
+  function homeClick() {
+    setHomePage(true)
+  }
+  function bookClick() {
+    setHomePage(false)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <Header onHomeClick={homeClick} onBookClick={bookClick} currentPage={isHomePage}/>
+      <main>
+        { isHomePage ? <HomePage onBookClick={bookClick}/> : <BookNow />}
+      </main>
+      <Footer/>
+    </Fragment>
   );
 }
 
