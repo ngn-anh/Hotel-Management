@@ -1,27 +1,56 @@
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 import classes from "./Chat.module.css";
+import io from "socket.io-client";
 
-const Chat = (props) => {
+const socket = io.connect("http://95.111.200.168:3001");
+
+const Chat = ({onClick}) => {
+  const [currentMessage, setCurrentMessage] = useState("");
+  const [messageList, setMessageList] = useState([]);
+
+  const sendMessage = async () => {
+    if (currentMessage !== "") {
+      const messageData = {
+        id: socket.id,
+        message: currentMessage,
+        time:
+          String(new Date(Date.now()).getHours()).padStart(2, "0") +
+          ":" +
+          String(new Date(Date.now()).getMinutes()).padStart(2, "0"),
+      };
+
+      await socket.emit('send_message', messageData);
+      setCurrentMessage('');
+    }
+  };
+
+  useEffect(() => {
+    socket.on('receive_message', (data) => {
+      setMessageList((prevList) => [...prevList, data]);
+    });
+  }, [socket]);
+
   return (
     <Fragment>
       <div className={classes.containerChat}>
         <div className={classes.topbar}>
-          <div className={classes.name} >
+          <div className={classes.name}>
             <ion-icon name="business-outline"></ion-icon>
             <p>Luxury Hotel</p>
           </div>
 
-          <div onClick={props.onClick} className={classes.close}><ion-icon name="remove-outline" ></ion-icon></div>
+          <div onClick={onClick} className={classes.close}>
+            <ion-icon name="remove-outline"></ion-icon>
+          </div>
         </div>
         <div className={classes.content}>
-          <p className={classes.customer}>Some one here?</p>
-          <p className={classes.hotel}>Hi, How can I help you?</p>
-          <p className={classes.customer}> Hi, I have some problem. </p>
-          <p className={classes.customer}>
-            I want a double room but I don't know about it. Can you describe for
-            me?
-          </p>
-          <p className={classes.hotel}>Oh, Of Course!</p>
+          {messageList.map((messageContent, index) => {
+            if (index % 2 == 0) {
+              return (
+                <p className={messageContent.id === socket.id ? classes.customer : classes.hotel}>{messageContent.message} <br/> ({messageContent.time})</p>
+              )
+            }
+          })}
         </div>
         <div className={classes.bottombar}>
           <svg
@@ -43,6 +72,8 @@ const Chat = (props) => {
             type="text"
             placeholder="Typing something..."
             className={classes.input}
+            onChange={(event) => setCurrentMessage(event.target.value)}
+            value={currentMessage}
           ></input>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -51,6 +82,7 @@ const Chat = (props) => {
             stroke-width="2.5"
             stroke="currentColor"
             class={classes.attach}
+            onClick={sendMessage}
           >
             <path
               stroke-linecap="round"

@@ -38,9 +38,9 @@ const Header = (props) => {
         <img src={picture3} className={classes.headerModal} alt="Homepage" />
       </header>
       {isChat? <Chat onClick={click}/>:""}
-      <div className={classes.chat} onClick={click}>
+      {!isChat && <div className={classes.chat} onClick={click}>
         <ion-icon name="logo-wechat"></ion-icon>
-      </div>
+      </div>}
     </Fragment>
   );
 };

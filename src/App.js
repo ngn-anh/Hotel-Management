@@ -4,7 +4,9 @@ import { Fragment } from "react";
 import HomePage from "./components/UI/HomePage";
 import Footer from "./components/Layout/Footer";
 import BookNow from "./components/UI/BookNow";
+import io from "socket.io-client";
 
+// const socket = 1;
 
 function App() {
   const [isHomePage, setHomePage] = useState(true);
@@ -16,7 +18,7 @@ function App() {
   }
   return (
     <Fragment>
-      <Header onHomeClick={homeClick} onBookClick={bookClick} currentPage={isHomePage}/>
+      <Header  onHomeClick={homeClick} onBookClick={bookClick} currentPage={isHomePage}/>
       <main>
         { isHomePage ? <HomePage onBookClick={bookClick}/> : <BookNow />}
       </main>
