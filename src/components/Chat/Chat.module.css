@@ -34,6 +34,7 @@
   flex-direction: column;
   height: 400px;
   padding: 10px 20px;
+  overflow: scroll;
 }
 .content .customer {
   align-self: flex-end;
