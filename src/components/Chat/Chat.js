@@ -1,6 +1,7 @@
 import { Fragment, useEffect, useState } from "react";
 import classes from "./Chat.module.css";
 import io from "socket.io-client";
+import ReactScrollableFeed from "react-scrollable-feed";
 
 const socket = io.connect("http://95.111.200.168:3001");
 
@@ -43,14 +44,16 @@ const Chat = ({onClick}) => {
             <ion-icon name="remove-outline"></ion-icon>
           </div>
         </div>
-        <div className={classes.content}>
-          {messageList.map((messageContent, index) => {
-            if (index % 2 == 0) {
-              return (
-                <p className={messageContent.id === socket.id ? classes.customer : classes.hotel}>{messageContent.message} <br/> ({messageContent.time})</p>
-              )
-            }
-          })}
+        <div className={classes.content} id="#chat">
+          <ReactScrollableFeed className={classes.content}>
+            {messageList.map((messageContent, index) => {
+              if (index % 2 == 0) {
+                return (
+                  <p className={messageContent.id === socket.id ? classes.customer : classes.hotel}>{messageContent.message} <br/> ({messageContent.time})</p>
+                )
+              }
+            })}
+          </ReactScrollableFeed>
         </div>
         <div className={classes.bottombar}>
           <svg
